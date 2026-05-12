@@ -6,11 +6,11 @@ public class House extends Asset{
     private int squareFoot;
     private int lotSize;
 
-    public House(String description, String dateAcquired, double originalCost, String address, int condition, int lootSize, int squareFoot) {
+    public House(String description, String dateAcquired, double originalCost, String address, int condition, int lotSize, int squareFoot) {
         super(description, dateAcquired, originalCost);
         this.address = address;
         this.condition = condition;
-        this.lotSize = lootSize;
+        this.lotSize = lotSize;
         this.squareFoot = squareFoot;
     }
 
@@ -50,15 +50,15 @@ public class House extends Asset{
     public double getValue() {
         double price;
         switch (getCondition()) {
-            case 1 -> price = getLotSize() * 180;
-            case 2 -> price = getLotSize() * 130;
-            case 3 -> price = getLotSize() * 90;
-            case 4 -> price = getLotSize() * 80;
+            case 1 -> price = getSquareFoot() * 180;
+            case 2 -> price = getSquareFoot() * 130;
+            case 3 -> price = getSquareFoot() * 90;
+            case 4 -> price = getSquareFoot() * 80;
             default -> {
                 System.out.println("Invalid condition");
                 return 0;
             }
         }
-        return price + (lotSize * .25); 
+        return price + (lotSize * .25);
     }
 }
