@@ -45,12 +45,24 @@ public class Vehicle extends Asset {
         int difference = currentYear - year;
         String lower = makeModel.toLowerCase();
 
-        double price;
+        double price = getOriginalCost();
 
         switch (difference) {
-            case 0, 1, 2, 3 -> price = getOriginalCost() * (1 - .03 * difference);
-            case 4, 5, 6 -> price = getOriginalCost() * (1 - .06 * (difference - 3));
-            case 7, 8, 9, 10 -> price = getOriginalCost() * (1 - .08 * (difference - 6));
+            case 0, 1, 2, 3 -> {
+                for (int i = 0; i < difference; i++){
+                    price *= .97;
+                }
+            }
+            case 4, 5, 6 -> {
+                for (int i = 0; i < (difference - 3); i++){
+                    price *= .94;
+                }
+            }
+            case 7, 8, 9, 10 -> {
+                for (int i = 0; i < (difference - 6); i++){
+                    price *= .92;
+                }
+            }
             default -> price = 1000;
         }
 

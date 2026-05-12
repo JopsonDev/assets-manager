@@ -10,7 +10,9 @@ class VehicleTest {
     public void getValue_ValueDecreaseBaseOnYear_ValueDecreases(){
         //Arrange
         Vehicle car = new Vehicle("sad", "asd", 100, "volswagen jetta", 2020, 5000);
-        double expectedPrice = 100 * (1 - .18);
+        double expectedPrice = 100 * .94;
+        expectedPrice *= .94;
+        expectedPrice *= .94;
 
         //Act
         double actualPrice = car.getValue();
