@@ -2,13 +2,13 @@ package com.pluralsight;
 
 import java.time.LocalDate;
 
-public class Vehicles extends Asset {
+public class Vehicle extends Asset {
     private String makeModel;
     private int year;
     private int odometer;
 
 
-    public Vehicles(String description, String dateAcquired, double originalCost, String makeModel, int year, int odometer) {
+    public Vehicle(String description, String dateAcquired, double originalCost, String makeModel, int year, int odometer) {
         super(description, dateAcquired, originalCost);
         this.makeModel = makeModel;
         this.odometer = odometer;
